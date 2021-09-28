@@ -38,6 +38,15 @@
 		9B15685E2702199400A9BC7E /* BuyCartCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B15685D2702199400A9BC7E /* BuyCartCellViewModel.swift */; };
 		9B1568602702254700A9BC7E /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B15685F2702254700A9BC7E /* Toast.swift */; };
 		9B1568632702E2BB00A9BC7E /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1568622702E2BB00A9BC7E /* IQKeyboardManagerSwift */; };
+		9B1568652703043000A9BC7E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1568642703043000A9BC7E /* AppCoordinator.swift */; };
+		9B1568672703043E00A9BC7E /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1568662703043E00A9BC7E /* AuthCoordinator.swift */; };
+		9B1568692703045000A9BC7E /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1568682703045000A9BC7E /* HomeCoordinator.swift */; };
+		9B15686B2703047400A9BC7E /* OrderListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B15686A2703047400A9BC7E /* OrderListCoordinator.swift */; };
+		9B15686D2703048D00A9BC7E /* StoreListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B15686C2703048D00A9BC7E /* StoreListCoordinator.swift */; };
+		9B15686F270304C600A9BC7E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B15686E270304C600A9BC7E /* MainViewController.swift */; };
+		9B156871270304DF00A9BC7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B156870270304DF00A9BC7E /* Main.storyboard */; };
+		9B156873270305B600A9BC7E /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B156872270305B600A9BC7E /* UIViewControllerExtensions.swift */; };
+		9B1568752703096000A9BC7E /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1568742703095F00A9BC7E /* UIViewExtensions.swift */; };
 		9B6F140927004F5500110EAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F140827004F5500110EAD /* AppDelegate.swift */; };
 		9B6F140B27004F5500110EAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F140A27004F5500110EAD /* SceneDelegate.swift */; };
 		9B6F140D27004F5500110EAD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6F140C27004F5500110EAD /* SignInViewController.swift */; };
@@ -100,6 +109,15 @@
 		9B15685B2702198900A9BC7E /* BuyCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyCartCell.swift; sourceTree = "<group>"; };
 		9B15685D2702199400A9BC7E /* BuyCartCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyCartCellViewModel.swift; sourceTree = "<group>"; };
 		9B15685F2702254700A9BC7E /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		9B1568642703043000A9BC7E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		9B1568662703043E00A9BC7E /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		9B1568682703045000A9BC7E /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		9B15686A2703047400A9BC7E /* OrderListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListCoordinator.swift; sourceTree = "<group>"; };
+		9B15686C2703048D00A9BC7E /* StoreListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreListCoordinator.swift; sourceTree = "<group>"; };
+		9B15686E270304C600A9BC7E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9B156870270304DF00A9BC7E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9B156872270305B600A9BC7E /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		9B1568742703095F00A9BC7E /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		9B6F140527004F5500110EAD /* InventoryManagementApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InventoryManagementApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6F140827004F5500110EAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B6F140A27004F5500110EAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +192,7 @@
 		9B15682E2700EFBA00A9BC7E /* Store List */ = {
 			isa = PBXGroup;
 			children = (
+				9B15686C2703048D00A9BC7E /* StoreListCoordinator.swift */,
 				9B15683B2701A5FE00A9BC7E /* StoreList.storyboard */,
 				9B15683D2701A60900A9BC7E /* StoreListViewController.swift */,
 				9B15683F2701A61300A9BC7E /* StoreListViewModel.swift */,
@@ -237,6 +256,7 @@
 		9B6F1420270057A800110EAD /* Sign In */ = {
 			isa = PBXGroup;
 			children = (
+				9B1568662703043E00A9BC7E /* AuthCoordinator.swift */,
 				9B6F140E27004F5500110EAD /* SignIn.storyboard */,
 				9B6F140C27004F5500110EAD /* SignInViewController.swift */,
 				9B6F142A27005A5300110EAD /* SignInViewModel.swift */,
@@ -250,6 +270,9 @@
 				9B6F140827004F5500110EAD /* AppDelegate.swift */,
 				9B6F140A27004F5500110EAD /* SceneDelegate.swift */,
 				9B6F141627004F5B00110EAD /* LaunchScreen.storyboard */,
+				9B1568642703043000A9BC7E /* AppCoordinator.swift */,
+				9B15686E270304C600A9BC7E /* MainViewController.swift */,
+				9B156870270304DF00A9BC7E /* Main.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -260,6 +283,8 @@
 				9B6F14232700582C00110EAD /* UIControlExtensions.swift */,
 				9B6F1425270058B400110EAD /* UIButtonExtensions.swift */,
 				9B6F1428270058D800110EAD /* UITextFieldExtensions.swift */,
+				9B156872270305B600A9BC7E /* UIViewControllerExtensions.swift */,
+				9B1568742703095F00A9BC7E /* UIViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -275,6 +300,7 @@
 		9B6F142F2700630100110EAD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9B1568682703045000A9BC7E /* HomeCoordinator.swift */,
 				9B6F14312700631A00110EAD /* Management */,
 			);
 			path = Home;
@@ -335,6 +361,7 @@
 		9B6F14522700C81200110EAD /* Order List */ = {
 			isa = PBXGroup;
 			children = (
+				9B15686A2703047400A9BC7E /* OrderListCoordinator.swift */,
 				9B6F14532700C84F00110EAD /* OrderList.storyboard */,
 				9B6F14552700C87300110EAD /* OrderListViewController.swift */,
 				9B6F14572700C8C600110EAD /* OrderListViewModel.swift */,
@@ -427,6 +454,7 @@
 				9B6F144727008ECB00110EAD /* ProductCell.xib in Resources */,
 				9B6F14332700632900110EAD /* ManagementHome.storyboard in Resources */,
 				9B1568272700D52B00A9BC7E /* OrderDetail.storyboard in Resources */,
+				9B156871270304DF00A9BC7E /* Main.storyboard in Resources */,
 				9B6F141027004F5500110EAD /* SignIn.storyboard in Resources */,
 				9B1568362701A3CA00A9BC7E /* CustomerList.storyboard in Resources */,
 			);
@@ -441,9 +469,13 @@
 			files = (
 				9B1568292700D5E900A9BC7E /* OrderDetailViewController.swift in Sources */,
 				9B1568252700CE6A00A9BC7E /* OrderCellViewModel.swift in Sources */,
+				9B1568692703045000A9BC7E /* HomeCoordinator.swift in Sources */,
 				9B1568582702142E00A9BC7E /* BuyCartViewModel.swift in Sources */,
 				9B6F144D2700939500110EAD /* NibReusable.swift in Sources */,
 				9B6F140D27004F5500110EAD /* SignInViewController.swift in Sources */,
+				9B156873270305B600A9BC7E /* UIViewControllerExtensions.swift in Sources */,
+				9B1568652703043000A9BC7E /* AppCoordinator.swift in Sources */,
+				9B1568672703043E00A9BC7E /* AuthCoordinator.swift in Sources */,
 				9B6F144B2700911600110EAD /* ProductCellViewModel.swift in Sources */,
 				9B1568562702141F00A9BC7E /* BuyCartViewController.swift in Sources */,
 				9B6F14242700582C00110EAD /* UIControlExtensions.swift in Sources */,
@@ -454,6 +486,7 @@
 				9B15684C2701CC5800A9BC7E /* EmployeeCell.swift in Sources */,
 				9B1568602702254700A9BC7E /* Toast.swift in Sources */,
 				9B1568502701CD8700A9BC7E /* StoreListCellViewModel.swift in Sources */,
+				9B15686D2703048D00A9BC7E /* StoreListCoordinator.swift in Sources */,
 				9B6F14352700633500110EAD /* ManagementHomeViewController.swift in Sources */,
 				9B15685C2702198900A9BC7E /* BuyCartCell.swift in Sources */,
 				9B15684E2701CD6100A9BC7E /* StoreListCell.swift in Sources */,
@@ -474,10 +507,13 @@
 				9B6F143E2700671200110EAD /* ListViewModel.swift in Sources */,
 				9B6F1429270058D800110EAD /* UITextFieldExtensions.swift in Sources */,
 				9B6F14562700C87300110EAD /* OrderListViewController.swift in Sources */,
+				9B15686F270304C600A9BC7E /* MainViewController.swift in Sources */,
 				9B6F144327006A7700110EAD /* Managed.swift in Sources */,
+				9B15686B2703047400A9BC7E /* OrderListCoordinator.swift in Sources */,
 				9B6F14492700909100110EAD /* ProductCell.swift in Sources */,
 				9B15683227019D6D00A9BC7E /* EmployeeListViewController.swift in Sources */,
 				9B6F14582700C8C600110EAD /* OrderListViewModel.swift in Sources */,
+				9B1568752703096000A9BC7E /* UIViewExtensions.swift in Sources */,
 				9B6F141327004F5500110EAD /* InventoryManagementApp.xcdatamodeld in Sources */,
 				9B6F142E27005B2100110EAD /* Auth.swift in Sources */,
 				9B1568442701CB1A00A9BC7E /* CustomerCell.swift in Sources */,
@@ -634,7 +670,7 @@
 				INFOPLIST_FILE = InventoryManagementApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = SignIn;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -662,7 +698,7 @@
 				INFOPLIST_FILE = InventoryManagementApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = SignIn;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

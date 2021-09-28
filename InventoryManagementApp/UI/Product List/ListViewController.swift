@@ -14,12 +14,16 @@ enum ListType {
     case customer
 }
 
+protocol ListViewControllerDelegate: NSObjectProtocol {
+    
+    func listViewControllerDidFinish(_ viewController: ListViewController)
+}
+
 class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = ListViewModel(listType: .product)
         configureViews()
         startObserving()
     }
@@ -209,6 +213,12 @@ class ListViewController: UIViewController {
     }
 
     private lazy var dataSource = createDataSource()
+    
+    //----------------------------------------
+    // MARK:- Delegate
+    //----------------------------------------
+    
+    weak var delegate: ListViewControllerDelegate?
     
     //----------------------------------------
     // MARK:- View Model

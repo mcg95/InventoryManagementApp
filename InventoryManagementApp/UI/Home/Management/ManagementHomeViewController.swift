@@ -9,6 +9,19 @@ import Foundation
 import UIKit
 import Combine
 
+protocol ManagementHomeViewControllerDelegate: NSObjectProtocol {
+        
+    func managementHomeViewControllerDidFinish(_ viewController: ManagementHomeViewController)
+    
+    func managementHomeViewControllerPresentCustomerList(_ viewController: ManagementHomeViewController)
+
+    func managementHomeViewControllerPresentEmployeeList(_ viewController: ManagementHomeViewController)
+
+    func managementHomeViewControllerPresentOrderList(_ viewController: ManagementHomeViewController)
+    
+    func managementHomeViewControllerPresentProductList(_ viewController: ManagementHomeViewController)
+}
+
 class ManagementHomeViewController: UIViewController {
     
     override func viewDidLoad() {
@@ -38,57 +51,50 @@ class ManagementHomeViewController: UIViewController {
     private func startObserving() {
         manageCustomerButton.publisher(for: .touchUpInside)
             .sink {
-                let storyboard = UIStoryboard(name: "CustomerList", bundle: nil)
-                if let vc = storyboard.instantiateViewController(withIdentifier: "CustomerList") as? CustomerListViewController {
-//                        vc.delegate = self
-//                        vc.viewModel = OrderDetailViewModel(products: self.viewModel.products, order: nil)
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+                self.delegate?.managementHomeViewControllerPresentCustomerList(self)
             }.store(in: &cancellables)
         
         manageEmployeeButton.publisher(for: .touchUpInside)
             .sink {
-                let storyboard = UIStoryboard(name: "EmployeeList", bundle: nil)
-                if let vc = storyboard.instantiateViewController(withIdentifier: "EmployeeList") as? EmployeeListViewController {
-//                        vc.delegate = self
-//                        vc.viewModel = OrderDetailViewModel(products: self.viewModel.products, order: nil)
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+                self.delegate?.managementHomeViewControllerPresentEmployeeList(self)
             }.store(in: &cancellables)
         
         manageOrderButton.publisher(for: .touchUpInside)
             .sink {
-                let storyboard = UIStoryboard(name: "OrderList", bundle: nil)
-                if let vc = storyboard.instantiateViewController(withIdentifier: "OrderList") as? OrderListViewController {
-//                        vc.delegate = self
-//                        vc.viewModel = OrderDetailViewModel(products: self.viewModel.products, order: nil)
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+                self.delegate?.managementHomeViewControllerPresentOrderList(self)
             }.store(in: &cancellables)
         
         manageProductButton.publisher(for: .touchUpInside)
             .sink {
-                let storyboard = UIStoryboard(name: "List", bundle: nil)
-                if let vc = storyboard.instantiateViewController(withIdentifier: "List") as? ListViewController {
-//                        vc.delegate = self
-//                        vc.viewModel = OrderDetailViewModel(products: self.viewModel.products, order: nil)
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+                self.delegate?.managementHomeViewControllerPresentProductList(self)
             }.store(in: &cancellables)
     }
     
     @objc func logOutButtonDidTap(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "SignIn") as? SignInViewController {
-//                        vc.delegate = self
-//                        vc.viewModel = OrderDetailViewModel(products: self.viewModel.products, order: nil)
-            self.navigationController?.viewControllers[0] = vc
-        }
+        delegate?.managementHomeViewControllerDidFinish(self)
     }
+    
+    //----------------------------------------
+    // MARK:- Delegate
+    //----------------------------------------
+    
+    weak var delegate: ManagementHomeViewControllerDelegate?
+    
+    //----------------------------------------
+    // MARK:- View Model
+    //----------------------------------------
     
     var viewModel: ManagementHomeViewModel!
     
+    //----------------------------------------
+    // MARK:- Internals
+    //----------------------------------------
+    
     private var cancellables = Set<AnyCancellable>()
+    
+    //----------------------------------------
+    // MARK:- Outlets
+    //----------------------------------------
     
     @IBOutlet private var manageCustomerButton: UIButton!
     

@@ -25,14 +25,13 @@ class OrderDetailViewController: UIViewController {
         saveButton.publisher(for: .touchUpInside)
             .sink {
                 self.delegate?.orderDetailViewControllerDidSubmit(self, order: self.viewModel.order)
-                self.dismiss(animated: true)
             }.store(in: &cancellables)
         
         cancelButton.publisher(for: .touchUpInside)
             .sink { [weak self] in
                 guard let self = self else { return }
                 
-                self.dismiss(animated: true)
+                self.delegate?.orderDetailViewControllerDidSubmit(self, order: nil)
             }.store(in: &cancellables)
         
         quantityTextField.textPublisher.sink { text in

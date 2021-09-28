@@ -9,6 +9,11 @@ import Foundation
 import UIKit
 import Combine
 
+protocol EmployeeListViewControllerDelegate: NSObjectProtocol {
+        
+    func employeeListViewControllerDidFinish(_ viewController: EmployeeListViewController)
+}
+
 class EmployeeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -197,6 +202,12 @@ class EmployeeListViewController: UIViewController {
     }
 
     private lazy var dataSource = createDataSource()
+    
+    //----------------------------------------
+    // MARK:- Delegate
+    //----------------------------------------
+    
+    weak var delegate: EmployeeListViewControllerDelegate?
     
     //----------------------------------------
     // MARK:- View Model

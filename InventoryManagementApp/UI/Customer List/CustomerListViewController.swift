@@ -9,6 +9,11 @@ import UIKit
 import CoreData
 import Combine
 
+protocol CustomerListViewControllerDelegate: NSObjectProtocol {
+        
+    func customerListViewControllerDidFinish(_ viewController: CustomerListViewController)
+}
+
 class CustomerListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -189,6 +194,12 @@ class CustomerListViewController: UIViewController {
     }
     
     private lazy var dataSource = createDataSource()
+    
+    //----------------------------------------
+    // MARK:- Delegate
+    //----------------------------------------
+    
+    weak var delegate: CustomerListViewControllerDelegate?
     
     //----------------------------------------
     // MARK:- View Model

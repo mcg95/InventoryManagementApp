@@ -8,6 +8,11 @@
 import Combine
 import UIKit
 
+protocol BuyCartViewControllerDelegate: NSObjectProtocol {
+        
+    func buyCartViewControllerDidFinish(_ viewController: BuyCartViewController)
+}
+
 class BuyCartViewController: UIViewController {
     
     override func viewDidLoad() {
@@ -34,7 +39,7 @@ class BuyCartViewController: UIViewController {
             self.viewModel.saveOrder()
             toast("Order Created", size: .normal, duration: .short)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.6) {
-                self.navigationController?.popViewController(animated: true)
+                self.delegate?.buyCartViewControllerDidFinish(self)
             }
         }.store(in: &cancellables)
     }
@@ -143,6 +148,12 @@ class BuyCartViewController: UIViewController {
     }
     
     private lazy var dataSource = createDataSource()
+    
+    //----------------------------------------
+    // MARK:- Delegate
+    //----------------------------------------
+    
+    weak var delegate: BuyCartViewControllerDelegate?
     
     //----------------------------------------
     // MARK:- View Model

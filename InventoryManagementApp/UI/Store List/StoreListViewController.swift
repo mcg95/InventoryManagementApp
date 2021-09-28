@@ -11,7 +11,15 @@ import UIKit
 import CoreData
 import Combine
 
+protocol StoreListViewControllerDelegate: NSObjectProtocol {
+        
+    func storeListViewControllerDidFinish(_ viewController: StoreListViewController)
+    
+    func storeListViewControllerPresentCart(_ viewController: StoreListViewController)
+}
+
 class StoreListViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,7 +92,6 @@ class StoreListViewController: UIViewController {
                                       handler: { action in
             var updatedProduct = product
             updatedProduct.name = alert.textFields?.first?.text ?? ""
-//            updatedProduct.password = alert.textFields?[1].text ?? ""
             self.viewModel.updateCart(product: updatedProduct)
         }))
         
@@ -95,21 +102,11 @@ class StoreListViewController: UIViewController {
     }
     
     @objc func buyCartButtonDidTap(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "BuyCart", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "BuyCart") as? BuyCartViewController {
-//                        vc.delegate = self
-//                        vc.viewModel = OrderDetailViewModel(products: self.viewModel.products, order: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        delegate?.storeListViewControllerPresentCart(self)
     }
     
     @objc func logOutButtonDidTap(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "SignIn") as? SignInViewController {
-//                        vc.delegate = self
-//                        vc.viewModel = OrderDetailViewModel(products: self.viewModel.products, order: nil)
-            self.navigationController?.viewControllers[0] = vc
-        }
+        delegate?.storeListViewControllerDidFinish(self)
     }
     
     //----------------------------------------
@@ -197,6 +194,12 @@ class StoreListViewController: UIViewController {
     }
     
     private lazy var dataSource = createDataSource()
+    
+    //----------------------------------------
+    // MARK:- Delegate
+    //----------------------------------------
+    
+    weak var delegate: StoreListViewControllerDelegate?
     
     //----------------------------------------
     // MARK:- View Model

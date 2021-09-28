@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.toolbarTintColor = .systemIndigo
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        
         if !userDefaults.bool(forKey: "hasCreatedData") {
             createInitialUsers()
         }

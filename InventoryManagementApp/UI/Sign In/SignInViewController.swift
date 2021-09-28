@@ -8,14 +8,26 @@
 import UIKit
 import Combine
 
-class SignInViewController: UIViewController {
+protocol SignInViewControllerDelegate: NSObjectProtocol {
+        
+    func signInViewControllerIsSuccess(_ signInViewController: UIViewController, role: UserRole)
+}
 
+class SignInViewController: UIViewController {
+    //----------------------------------------
+    // MARK:- Lifecycle
+    //----------------------------------------
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel = SignInViewModel()
         startObserving()
     }
+    
+    //----------------------------------------
+    // MARK:- Start Observing
+    //----------------------------------------
     
     private func startObserving() {
         usernameTextField.textPublisher.combineLatest(passwordTextField.textPublisher)
@@ -41,36 +53,37 @@ class SignInViewController: UIViewController {
         
         viewModel.isLoginSuccess.sink { isSuccess, role in
             if isSuccess {
-                switch role {
-                case .employee,
-                        .admin:
-                    let storyboard = UIStoryboard(name: "ManagementHome", bundle: nil)
-                    if let vc = storyboard.instantiateViewController(withIdentifier: "ManagementHome") as? ManagementHomeViewController {
-//                        vc.delegate = self
-                        vc.viewModel = ManagementHomeViewModel(userRole: role!)
-                        self.navigationController?.viewControllers[0] = vc
-                    }
-                    
-                case .customer:
-                    let storyboard = UIStoryboard(name: "StoreList", bundle: nil)
-                    if let vc = storyboard.instantiateViewController(withIdentifier: "StoreList") as? StoreListViewController {
-//                        vc.delegate = self
-//                        vc.viewModel = OrderDetailViewModel(products: self.viewModel.products, order: nil)
-                        self.navigationController?.viewControllers[0] = vc
-                    }
-                    
-                default: break
-                }
+                self.delegate?.signInViewControllerIsSuccess(self, role: role ?? .admin)
             } else {
-                toast("Invalid Credentials.", size: .small, duration: .normal)
-                self.resetButton.sendActions(for: .touchUpInside)
+                if self.viewModel.loginParams != nil {
+                    toast("Invalid Credentials.", size: .small, duration: .normal)
+                    self.resetButton.sendActions(for: .touchUpInside)
+                }
             }
         }.store(in: &cancellables)
     }
     
+    //----------------------------------------
+    // MARK:- Delegate
+    //----------------------------------------
+    
+    weak var delegate: SignInViewControllerDelegate?
+    
+    //----------------------------------------
+    // MARK:- View Model
+    //----------------------------------------
+    
     var viewModel: SignInViewModel!
     
+    //----------------------------------------
+    // MARK:- Internals
+    //----------------------------------------
+    
     private var cancellables = Set<AnyCancellable>()
+    
+    //----------------------------------------
+    // MARK:- Outlets
+    //----------------------------------------
     
     @IBOutlet private var usernameTextField: UITextField!
     

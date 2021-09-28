@@ -8,6 +8,13 @@
 import UIKit
 import Combine
 
+protocol OrderListViewControllerDelegate: NSObjectProtocol {
+    
+    func orderListViewControllerDidFinish(_ viewController: OrderListViewController)
+    
+    func orderListViewControllerPresentOrderDetail(_ viewController: OrderListViewController, order: Order?)
+}
+
 class OrderListViewController: UIViewController {
     
     override func viewDidLoad() {
@@ -30,12 +37,7 @@ class OrderListViewController: UIViewController {
     
     private func configureViews() {
         let addItemButton = UIBarButtonItem(systemItem: .add, primaryAction: UIAction(handler: { action in
-            let storyboard = UIStoryboard(name: "OrderDetail", bundle: nil)
-            if let vc = storyboard.instantiateViewController(withIdentifier: "OrderDetail") as? OrderDetailViewController {
-                vc.delegate = self
-                vc.viewModel = OrderDetailViewModel(products: self.viewModel.products, order: nil)
-                self.present(vc, animated: true)
-            }
+            self.delegate?.orderListViewControllerPresentOrderDetail(self, order: nil)
         }))
         addItemButton.tintColor = .systemIndigo
         navigationItem.rightBarButtonItem = addItemButton
@@ -161,12 +163,7 @@ class OrderListViewController: UIViewController {
                     cell.editButtonPublisher.sink(receiveValue: { [weak self] _ in
                         guard let self = self else { return }
                         
-                        let storyboard = UIStoryboard(name: "OrderDetail", bundle: nil)
-                        if let vc = storyboard.instantiateViewController(withIdentifier: "OrderDetail") as? OrderDetailViewController {
-                            vc.delegate = self
-                            vc.viewModel = OrderDetailViewModel(products: self.viewModel.products, order: item)
-                            self.present(vc, animated: true)
-                        }
+                        self.delegate?.orderListViewControllerPresentOrderDetail(self, order: item)
                     }).store(in: &(cell.cancellables))
                     
                     cell.deleteButtonPublisher.sink(receiveValue: { [weak self] _ in
@@ -181,6 +178,12 @@ class OrderListViewController: UIViewController {
     }
 
     private lazy var dataSource = createDataSource()
+    
+    //----------------------------------------
+    // MARK:- Delegate
+    //----------------------------------------
+    
+    weak var delegate: OrderListViewControllerDelegate?
     
     //----------------------------------------
     // MARK:- View Model
@@ -217,12 +220,4 @@ class OrderListViewController: UIViewController {
     @IBOutlet private var searchBar: UISearchBar!
     
     @IBOutlet private var collectionView: UICollectionView!
-}
-
-extension OrderListViewController: OrderDetailViewControllerDelegate {
-    func orderDetailViewControllerDidSubmit(_ viewController: OrderDetailViewController, order: Order?) {
-        guard let order = order else { return }
-        
-        self.viewModel.saveOrder(order: order)
-    }
 }

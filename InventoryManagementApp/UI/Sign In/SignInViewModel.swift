@@ -10,6 +10,9 @@ import CoreData
 import Combine
 
 class SignInViewModel: NSObject {
+    //----------------------------------------
+    // MARK:- Initialization
+    //----------------------------------------
     
     override init() {
         super.init()
@@ -17,6 +20,10 @@ class SignInViewModel: NSObject {
         fetchEmployees()
         fetchCustomers()
     }
+    
+    //----------------------------------------
+    // MARK:- Core Data Methods
+    //----------------------------------------
     
     func fetchEmployees() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -63,6 +70,10 @@ class SignInViewModel: NSObject {
         }
     }
     
+    //----------------------------------------
+    // MARK:- Login
+    //----------------------------------------
+    
     func performLogin() {
         guard let loginParams = loginParams else { return }
         
@@ -74,6 +85,10 @@ class SignInViewModel: NSObject {
         isLoginSuccess.send((!matchingCredentials.isEmpty, matchingCredentials.first?.role))
     }
         
+    //----------------------------------------
+    // MARK:- Properties
+    //----------------------------------------
+    
     var isLoginSuccess = CurrentValueSubject<(Bool, UserRole?), Never>((false, nil))
 
     private(set) var items = CurrentValueSubject<[User], Never>([])
