@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Order Detail View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="OrderDetail" id="Y6W-OH-hqX" customClass="OrderDetailViewController" customModule="InventoryManagementApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uqg-rj-MCz">
+                                <rect key="frame" x="80" y="84" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="63X-I2-Qxy">
+                                <rect key="frame" x="80" y="188" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JyO-9Z-7TS">
+                                <rect key="frame" x="80" y="242" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vs-vj-Ac1">
+                                <rect key="frame" x="80" y="138" width="254" height="30"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <state key="normal" title="Select Product"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Jns-DS-g9q">
+                                <rect key="frame" x="60" y="326" width="294" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shE-yJ-rzc">
+                                        <rect key="frame" x="0.0" y="0.0" width="132" height="31"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssS-sY-MeO">
+                                        <rect key="frame" x="162" y="0.0" width="132" height="31"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hc-qq-P1R">
+                                <rect key="frame" x="60" y="296" width="294" height="0.0"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Uqg-rj-MCz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="1gM-bc-5KI"/>
+                            <constraint firstItem="63X-I2-Qxy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="80" id="5xF-VF-ILv"/>
+                            <constraint firstItem="Uqg-rj-MCz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="80" id="Fve-YM-JWy"/>
+                            <constraint firstItem="7Vs-vj-Ac1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="80" id="LjM-8h-gXF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7Vs-vj-Ac1" secondAttribute="trailing" constant="80" id="MpT-hp-UDh"/>
+                            <constraint firstItem="7Vs-vj-Ac1" firstAttribute="top" secondItem="Uqg-rj-MCz" secondAttribute="bottom" constant="20" id="NLK-4l-aBx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Uqg-rj-MCz" secondAttribute="trailing" constant="80" id="SZe-Cd-tne"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Jns-DS-g9q" secondAttribute="trailing" constant="60" id="UHQ-5r-n44"/>
+                            <constraint firstItem="63X-I2-Qxy" firstAttribute="top" secondItem="7Vs-vj-Ac1" secondAttribute="bottom" constant="20" id="Ue2-yK-Rn5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="63X-I2-Qxy" secondAttribute="trailing" constant="80" id="XMv-5G-fkg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2hc-qq-P1R" secondAttribute="trailing" constant="60" id="ZNB-Dz-7o4"/>
+                            <constraint firstItem="Jns-DS-g9q" firstAttribute="top" secondItem="2hc-qq-P1R" secondAttribute="bottom" constant="30" id="dSe-oe-Ldi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="JyO-9Z-7TS" secondAttribute="trailing" constant="80" id="eCN-gi-pDO"/>
+                            <constraint firstItem="2hc-qq-P1R" firstAttribute="top" secondItem="JyO-9Z-7TS" secondAttribute="bottom" constant="20" id="lmo-O5-6yM"/>
+                            <constraint firstItem="JyO-9Z-7TS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="80" id="lz6-2n-j6c"/>
+                            <constraint firstItem="JyO-9Z-7TS" firstAttribute="top" secondItem="63X-I2-Qxy" secondAttribute="bottom" constant="20" id="m9S-Un-mpE"/>
+                            <constraint firstItem="2hc-qq-P1R" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="xBw-Qe-GYi"/>
+                            <constraint firstItem="Jns-DS-g9q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="yU7-2m-NjR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="shE-yJ-rzc" id="lgt-Od-zLY"/>
+                        <outlet property="orderIdTextField" destination="Uqg-rj-MCz" id="w6f-5w-spN"/>
+                        <outlet property="priceLabel" destination="2hc-qq-P1R" id="ZlT-g4-EFK"/>
+                        <outlet property="productNameButton" destination="7Vs-vj-Ac1" id="Yy1-1M-hx4"/>
+                        <outlet property="productPriceTextField" destination="63X-I2-Qxy" id="InS-z1-RFf"/>
+                        <outlet property="quantityTextField" destination="JyO-9Z-7TS" id="LlF-cK-X2D"/>
+                        <outlet property="saveButton" destination="ssS-sY-MeO" id="rO5-0C-LTg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9" y="82"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AccentColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NDZ-VR-xRw">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--List View Controller-->
+        <scene sceneID="mp4-P2-XXc">
+            <objects>
+                <viewController storyboardIdentifier="List" id="NDZ-VR-xRw" customClass="ListViewController" customModule="InventoryManagementApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MiI-qA-gf5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tqx-AX-Yqp">
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Edp-3b-YXe">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="NDZ-VR-xRw" id="836-On-yHV"/>
+                                    <outlet property="delegate" destination="NDZ-VR-xRw" id="QzZ-1b-Ixa"/>
+                                </connections>
+                            </collectionView>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="dMB-US-3Pk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="f2c-Zu-fqy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tqx-AX-Yqp" firstAttribute="top" secondItem="dMB-US-3Pk" secondAttribute="bottom" id="0EN-vF-sjT"/>
+                            <constraint firstItem="f2c-Zu-fqy" firstAttribute="trailing" secondItem="Tqx-AX-Yqp" secondAttribute="trailing" id="Gg0-lf-1A3"/>
+                            <constraint firstItem="dMB-US-3Pk" firstAttribute="leading" secondItem="f2c-Zu-fqy" secondAttribute="leading" id="GxK-Uk-6Ln"/>
+                            <constraint firstItem="Tqx-AX-Yqp" firstAttribute="leading" secondItem="f2c-Zu-fqy" secondAttribute="leading" id="Pso-yL-N4G"/>
+                            <constraint firstItem="dMB-US-3Pk" firstAttribute="top" secondItem="f2c-Zu-fqy" secondAttribute="top" id="bLT-fq-ERb"/>
+                            <constraint firstItem="f2c-Zu-fqy" firstAttribute="bottom" secondItem="Tqx-AX-Yqp" secondAttribute="bottom" id="bye-nH-iVI"/>
+                            <constraint firstItem="dMB-US-3Pk" firstAttribute="trailing" secondItem="f2c-Zu-fqy" secondAttribute="trailing" id="c6s-ga-Ihh"/>
+                            <constraint firstItem="Tqx-AX-Yqp" firstAttribute="top" secondItem="f2c-Zu-fqy" secondAttribute="top" constant="50" id="muR-PG-YCc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MNa-x6-AhX"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Tqx-AX-Yqp" id="ERO-QW-ifS"/>
+                        <outlet property="searchBar" destination="dMB-US-3Pk" id="QSI-Ji-sbo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p6O-TG-rHk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2663.768115942029" y="105.80357142857143"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
